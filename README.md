@@ -1,9 +1,13 @@
 ## Launch an Amazon Linux EC2
 **Install Docker**
-- **`apt update && yum install docker`**
+```
+apt update && yum install docker
+```
 
 **start Docker**
-- **`service docker start`**
+```
+service docker start
+```
 
 
 ## Install Jenkins
@@ -17,12 +21,18 @@ jenkins/jenkins:lts
 
 
 ## Enter as root into Jenkins container and modify docker.sock permission
-- **`docker exec -u 0 -it <container-id> /bin/bash`**
-- **`chmod 666 /var/run/docker.run`**
+```
+docker exec -u 0 -it <container-id> /bin/bash
+```
+```
+chmod 666 /var/run/docker.run
+```
 
 
 ## Enter as root into Jenkins container and [install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-- **`docker exec -u 0 -it <container-id> /bin/bash`**
+```
+docker exec -u 0 -it <container-id> /bin/bash
+```
 ```
 apt-get update && apt-get install -y gnupg software-properties-common
 ```
