@@ -20,6 +20,11 @@ jenkins/jenkins:lts
 ```
 
 
+## Initial admin password
+```
+
+
+
 ## Enter as root into Jenkins container and modify docker.sock permission
 ```
 docker exec -u 0 -it <container-id> /bin/bash
