@@ -22,6 +22,11 @@ jenkins/jenkins:lts
 
 ## Initial admin password
 ```
+docker exec -it <container-id> /bin/bash
+```
+```
+cat /var/jenkins_home/secrets/initialAdminPassword
+``
 
 
 
