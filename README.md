@@ -44,6 +44,9 @@ chmod 666 /var/run/docker.sock
 docker exec -u 0 -it <container-id> /bin/bash
 ```
 ```
+apt install wget
+```
+```
 apt-get update && apt-get install -y gnupg software-properties-common
 ```
 ```
