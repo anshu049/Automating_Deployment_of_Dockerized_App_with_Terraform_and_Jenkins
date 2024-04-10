@@ -35,7 +35,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 docker exec -u 0 -it <container-id> /bin/bash
 ```
 ```
-chmod 666 /var/run/docker.run
+chmod 666 /var/run/docker.sock
 ```
 
 
