@@ -1,7 +1,7 @@
 ## Launch an Amazon Linux EC2 (add port 8080 in inbound rules)
 **Install Docker**
 ```
-apt update && yum install docker
+yum update && yum install docker
 ```
 
 **start Docker**
