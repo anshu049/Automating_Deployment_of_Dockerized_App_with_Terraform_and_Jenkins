@@ -26,7 +26,7 @@ docker exec -it <container-id> /bin/bash
 ```
 ```
 cat /var/jenkins_home/secrets/initialAdminPassword
-``
+```
 
 
 
