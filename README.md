@@ -1,6 +1,7 @@
 ## Launch an Amazon Linux EC2
 **Install Docker**
 - **`apt update && yum install docker`**
+
 **start Docker**
 - **`service docker start`**
 
