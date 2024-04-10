@@ -72,4 +72,7 @@ apt-get install terraform
 ```
 
 
+## Create key-pair for EC2 which will be used by Terraform to connect to created instance for our
 
+
+## Add Credentials in Jenkins
