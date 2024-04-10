@@ -23,7 +23,9 @@ jenkins/jenkins:lts
 
 ## Enter as root into Jenkins container and [install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 - **`docker exec -u 0 -it <container-id> /bin/bash`**
-- **`apt-get update && sudo apt-get install -y gnupg software-properties-common`**
+```
+apt-get update && sudo apt-get install -y gnupg software-properties-common
+```
 ```
 wget -O- https://apt.releases.hashicorp.com/gpg | \
 gpg --dearmor | \
