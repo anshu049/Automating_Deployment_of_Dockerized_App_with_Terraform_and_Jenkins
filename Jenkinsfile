@@ -2,20 +2,14 @@ pipeline {
     agent any
     
     environment {
-        IMAGE_NAME = 'anshu049/demo-app:java-maven-2.0'
+        IMAGE_NAME = 'anshu049/tweet-app'
         DOCKER_CREDS_USR = credentials('docker-hub-username')
         DOCKER_CREDS_PSW = credentials('docker-hub-password')
         AWS_ACCESS_KEY_ID = credentials('access_key')
         AWS_SECRET_ACCESS_KEY = credentials('secret_access_key')
-        SSH_KEY_CREDENTIAL = 'server-ssh-key' // Modify this to match your SSH key credential ID
+        SSH_KEY_CREDENTIAL = 'server-ssh-key'
     }
-    
-    stages {
-        stage('build app') {
-            steps {
-                echo 'building application jar...'
-                sh 'mvn package'
-            }
+
         }
         stage('build image') {
             steps {
@@ -53,13 +47,13 @@ pipeline {
                     echo 'deploying docker image to EC2...'
                     echo "${EC2_PUBLIC_IP}"
 
-                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME} ${env.DOCKER_CREDS_USR} ${env.DOCKER_CREDS_PSW}"  // Using environment variables for credentials
+                    def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME} ${env.DOCKER_CREDS_USR} ${env.DOCKER_CREDS_PSW}"
                     def ec2Instance = "ec2-user@${EC2_PUBLIC_IP}"
 
-                    sshagent(['server-ssh-key']) {  // Assuming you have configured SSH key with Jenkins
+                    sshagent(['server-ssh-key']) {
                         sh "scp -o StrictHostKeyChecking=no server-cmds.sh ${ec2Instance}:/home/ec2-user"
                         sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ${ec2Instance}:/home/ec2-user"
-                        sh "ssh ${ec2Instance} ${shellCmd}" // No bypass option needed after initial trust establishment
+                        sh "ssh ${ec2Instance} ${shellCmd}"
                     }
                 }
             }
