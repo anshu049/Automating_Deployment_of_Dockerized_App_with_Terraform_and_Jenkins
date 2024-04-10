@@ -76,3 +76,4 @@ apt-get install terraform
 
 
 ## Add Credentials in Jenkins
+- **As Secret text for docker-hub and AWS Credentials, SSH username with private key for key-pair**
