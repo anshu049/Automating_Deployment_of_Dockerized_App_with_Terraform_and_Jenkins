@@ -17,12 +17,12 @@ jenkins/jenkins:lts
 
 
 ## Enter as root into Jenkins container and modify docker.sock permission
-- **`docker exec -u 0 -it 0c73a1692b75 bash`**
+- **`docker exec -u 0 -it <container-id> bash`**
 - **`chmod 666 /var/run/docker.run`**
 
 
-## Enter as root into Jenkins container and install Terraform
-- (https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+## Enter as root into Jenkins container and [install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- **`docker exec -u 0 -it <container-id> bash`**
 - **`apt-get update && sudo apt-get install -y gnupg software-properties-common`**
 ```
 wget -O- https://apt.releases.hashicorp.com/gpg | \
