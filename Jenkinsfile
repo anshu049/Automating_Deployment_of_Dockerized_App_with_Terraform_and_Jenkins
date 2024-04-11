@@ -36,7 +36,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'access_key', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'secret_access_key', variable: 'AWS_SECRET_ACCESS_KEY')]) {
                         dir('terraform') {
                             sh "terraform init"
-                            sh "terraform destroy --auto-approve"
+                            sh "terraform apply --auto-approve"
                             EC2_PUBLIC_IP = sh(script: "terraform output ec2_public_ip", returnStdout: true).trim()
                         }
                     }
