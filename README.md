@@ -83,3 +83,13 @@ apt-get install terraform
 ## Create job as Pipeline and start build
 ![job successful](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/05facbf0-fe4f-42a4-a8a1-dc4c006a31bb)
 
+
+
+
+## AWS resources created from Terrafrom
+![AWS resources](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/d91be25c-cb32-4e78-ba77-1f4dc09efd28)
+
+
+## App
+![App](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/443236b1-54f4-4d9f-83a8-271dc209af34)
+
