@@ -1,7 +1,6 @@
 version: '3.8'
 services:
-    java-maven-app:
-      container_name: tweetapp
-      image: ${IMAGE}
-      ports:
-        - 80:80
+  tweetpp:
+    image: ${IMAGE}
+    ports:
+      - 80:80
