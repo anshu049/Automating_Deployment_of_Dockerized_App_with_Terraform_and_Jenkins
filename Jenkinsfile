@@ -56,9 +56,6 @@ pipeline {
                     echo 'Deploying docker image to EC2...'
                     echo "${EC2_PUBLIC_IP}"
 
-                    def shellCmd = "bash ./server-cmds.sh"
-                    def ec2Instance = "ec2-user@${EC2_PUBLIC_IP}"
-
                     sshagent(['server-ssh-key']) {
                         sh "scp -o StrictHostKeyChecking=no server-cmds.sh ${ec2Instance}:/home/ec2-user"
                         sh "ssh ${ec2Instance} ${shellCmd}"
