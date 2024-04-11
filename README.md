@@ -87,6 +87,11 @@ apt-get install terraform
 ## Add webhook
 ![webhook](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/df9abd62-da13-4159-9e24-eee37bafa160)
 
+- **After new commit to github it will go into pending state**
+![pending build](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/0f3d68dc-0b01-439b-bcca-52138563827d)
+
+**Few second later it will be triigerd for push**
+![build from push](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/c2f2f91d-ac2c-42ef-9ecf-92cc8dc965c9)
 
 
 ## AWS resources created from Terrafrom
