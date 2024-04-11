@@ -30,18 +30,15 @@ pipeline {
         stage('provision server') {
             environment {
                 TF_VAR_env_prefix = 'test'
-                AWS_ACCESS_KEY_ID = credentials('access_key')
-                AWS_SECRET_ACCESS_KEY = credentials('secret_access_key')
             }
             steps {
                 script {
-                    dir('terraform') {
-                        sh "terraform init"
-                        sh "terraform apply --auto-approve"
-                        EC2_PUBLIC_IP = sh(
-                            script: "terraform output ec2_public_ip",
-                            returnStdout: true
-                        ).trim()
+                    withCredentials([string(credentialsId: 'access_key', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'secret_access_key', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                        dir('terraform') {
+                            sh "terraform init"
+                            sh "terraform apply --auto-approve"
+                            EC2_PUBLIC_IP = sh(script: "terraform output ec2_public_ip", returnStdout: true).trim()
+                        }
                     }
                 }
             }
@@ -57,8 +54,8 @@ pipeline {
                     echo "${EC2_PUBLIC_IP}"
 
                     sshagent(['server-ssh-key']) {
-                        sh "scp -o StrictHostKeyChecking=no server-cmds.sh ${ec2Instance}:/home/ec2-user"
-                        sh "ssh ${ec2Instance} ${shellCmd}"
+                        sh "scp -o StrictHostKeyChecking=no server-cmds.sh ec2-user@${EC2_PUBLIC_IP}:/home/ec2-user"
+                        sh "ssh ec2-user@${EC2_PUBLIC_IP} bash /home/ec2-user/server-cmds.sh"
                     }
                 }
             }
