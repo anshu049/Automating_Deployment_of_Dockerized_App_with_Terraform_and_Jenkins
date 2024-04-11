@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
         IMAGE_NAME = 'anshu049/tweet-app:latest'
         DOCKER_CREDS_USR = credentials('docker-hub-username')
@@ -9,16 +9,24 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('secret_access_key')
         SSH_KEY_CREDENTIAL = 'server-ssh-key'
     }
-    
+
     stages {
+        stage('checkout code') {
+            steps {
+                echo 'Checking out code...'
+                git branch: 'main', url: 'https://github.com/your/repository.git'
+            }
+        }
+
         stage('build image') {
             steps {
-                echo 'building docker image...'
+                echo 'Building docker image...'
                 sh "docker build -t ${IMAGE_NAME} ."
                 dockerLogin()
                 dockerPush(env.IMAGE_NAME)
             }
         }
+
         stage('provision server') {
             environment {
                 TF_VAR_env_prefix = 'test'
@@ -38,13 +46,14 @@ pipeline {
                 }
             }
         }
+
         stage('deploy') {
             steps {
                 script {
-                    echo "waiting for EC2 server to initialize" 
+                    echo "Waiting for EC2 server to initialize" 
                     sleep(time: 90, unit: "SECONDS") 
 
-                    echo 'deploying docker image to EC2...'
+                    echo 'Deploying docker image to EC2...'
                     echo "${EC2_PUBLIC_IP}"
 
                     def shellCmd = "bash ./server-cmds.sh ${IMAGE_NAME} ${env.DOCKER_CREDS_USR} ${env.DOCKER_CREDS_PSW}"
