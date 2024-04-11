@@ -4,7 +4,12 @@ provider "aws" {
 
 resource "aws_vpc" "myapp-vpc" {
     cidr_block = var.vpc_cidr_block
+
+    tags = {
+        Name = "myapp-vpc"
+    }
 }
+
 
 resource "aws_subnet" "myapp-subnet-1" {
     vpc_id            = aws_vpc.myapp-vpc.id
