@@ -1,3 +1,7 @@
+provider "aws" {
+    region = var.region
+}
+
 resource "aws_vpc" "myapp-vpc" {
     cidr_block = var.vpc_cidr_block
 }
@@ -67,7 +71,7 @@ resource "aws_instance" "myapp-server" {
     instance_type        = var.instance_type
     subnet_id            = aws_subnet.myapp-subnet-1.id
     vpc_security_group_ids = [aws_default_security_group.default-sg.id]
-    availability_zone    = var.avail_zone
+    availability_zone = var.avail_zone
     associate_public_ip_address = true
     key_name             = "tweet-app-key-pair"
     user_data            = file("entry-script.sh")
