@@ -9,8 +9,8 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('secret_access_key')
         SSH_KEY_CREDENTIAL = 'server-ssh-key'
     }
-
-        }
+    
+    stages {
         stage('build image') {
             steps {
                 echo 'building docker image...'
