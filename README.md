@@ -79,3 +79,7 @@ apt-get install terraform
 - **As Secret text for docker-hub and AWS Credentials, SSH username with private key for key-pair (username as `ec2-user`)**
 ![credentials in jenkins](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/2e75a587-07e8-4d17-9fbb-4b8937d24948)
 
+
+## Create job as Pipeline and start build
+![job successful](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/05facbf0-fe4f-42a4-a8a1-dc4c006a31bb)
+
