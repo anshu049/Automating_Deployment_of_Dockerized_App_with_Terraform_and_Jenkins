@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-docker-compose -f docker-compose.yaml up --detach --remove-orphans
+docker run -d -p 80:80 anshu049/tweet-app:latest
 echo "success"
