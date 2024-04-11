@@ -27,7 +27,7 @@ docker exec -it <container-id> /bin/bash
 ```
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-
+**Install plugin `SSH Agent`**
 
 
 ## Enter as root into Jenkins container and modify docker.sock permission
