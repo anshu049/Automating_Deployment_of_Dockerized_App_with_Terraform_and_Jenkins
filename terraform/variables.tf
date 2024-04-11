@@ -14,6 +14,7 @@ variable env_prefix {
 variable instance_type {
     default = "t2.micro"
 }
-variable region {
-    default = "us-west-1"
+
+variable my_ip {
+    default = "54.183.147.139/32"
 }
