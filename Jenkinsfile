@@ -66,5 +66,5 @@ def dockerLogin() {
 }
 
 def dockerPush(imageName) {
-    sh "docker push ${imageName}"
+    sh "docker push ${env.IMAGE_NAME}"
 }
