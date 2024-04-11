@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'anshu049/tweet-app:latest'
+        IMAGE_NAME = 'anshu049/tweet-app'
         DOCKER_CREDS_USR = credentials('docker-hub-username')
         DOCKER_CREDS_PSW = credentials('docker-hub-password')
         AWS_ACCESS_KEY_ID = credentials('access_key')
