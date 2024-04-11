@@ -1,6 +1,6 @@
 version: '3.8'
 services:
   tweetpp:
-    image: ${IMAGE_NAME}
+    image: anshu049/tweet-app:latest
     ports:
       - 80:80
