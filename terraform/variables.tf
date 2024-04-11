@@ -4,11 +4,9 @@ variable vpc_cidr_block {
 variable subnet_cidr_block {
     default = "10.0.10.0/24"
 }
+
 variable avail_zone {
     default = "us-west-1a"
-}
-variable env_prefix {
-    default = "dev"
 }
 
 variable instance_type {
@@ -17,4 +15,8 @@ variable instance_type {
 
 variable my_ip {
     default = "54.183.147.139/32"
+}
+
+variable region {
+    default = "us-west-1"
 }
