@@ -14,7 +14,7 @@ pipeline {
         stage('checkout code') {
             steps {
                 echo 'Checking out code...'
-                git branch: 'main', url: 'https://github.com/your/repository.git'
+                git branch: 'master', url: 'https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform'
             }
         }
 
