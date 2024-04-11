@@ -90,7 +90,7 @@ apt-get install terraform
 - **After new commit to github it will go into pending state**
 ![pending build](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/0f3d68dc-0b01-439b-bcca-52138563827d)
 
-**Few second later it will be triigerd for push**
+- **Few second later it will be triigerd for push**
 ![build from push](https://github.com/anshu049/CI-CD-Pipeline-Setup-for-Dockerized-Application-on-AWS-EC2-with-Terraform/assets/95365748/c2f2f91d-ac2c-42ef-9ecf-92cc8dc965c9)
 
 
